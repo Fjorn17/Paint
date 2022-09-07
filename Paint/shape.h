@@ -39,6 +39,7 @@ public:
 
 class Shape {
 public:
+	virtual ~Shape() {}
 	virtual string draw() = 0;
 };
 
@@ -46,6 +47,7 @@ class Circulo :public Shape {
 public:
 	Circulo(Color* foreColor, Color* backgroundColor, Point PointInicio, Point PointFinal, string shapeID):
 		foreColor(foreColor), backgroundColor(backgroundColor), PointInicio(PointInicio), PointFinal(PointFinal), shapeID(shapeID){}
+	virtual ~Circulo() {}
 	string draw() {
 		return "Circulo";
 	};

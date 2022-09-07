@@ -134,11 +134,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="canvas.h" />
-    <ClInclude Include="color.h" />
     <ClInclude Include="command.h" />
     <ClInclude Include="commands.h" />
     <ClInclude Include="parse.h" />
-    <ClInclude Include="punto.h" />
     <ClInclude Include="pubsub.h" />
     <ClInclude Include="shapeFactory.h" />
     <ClInclude Include="shape.h" />
