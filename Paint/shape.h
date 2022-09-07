@@ -6,7 +6,6 @@
 
 using namespace std;
 
-
 struct Color
 {
 	static constexpr Color red() { return Color(255, 0, 0); }
@@ -24,7 +23,6 @@ struct Color
 	uint8_t b;
 	uint8_t a;
 };
-
 
 class Point {
 private:
@@ -46,13 +44,8 @@ public:
 
 class Circulo :public Shape {
 public:
-	Circulo(Color* foreColor, Color* backgroundColor, Point PointInicio, Point PointFinal, int shapeID) {
-		this->foreColor = foreColor;
-		this->backgroundColor = backgroundColor;
-		this->PointInicio = PointInicio;
-		this->PointFinal = PointFinal;
-		this->shapeID = shapeID;
-	}
+	Circulo(Color* foreColor, Color* backgroundColor, Point PointInicio, Point PointFinal, int shapeID):
+		foreColor(foreColor), backgroundColor(backgroundColor), PointInicio(PointInicio), PointFinal(PointFinal), shapeID(shapeID){}
 	string draw() {
 		return "Circulo";
 	};
@@ -66,13 +59,8 @@ private:
 
 class Rectangulo :public Shape {
 public:
-	Rectangulo(Color* foreColor, Color* backgroundColor, Point PointInicio, Point PointFinal, int shapeID) {
-		this->foreColor = foreColor;
-		this->backgroundColor = backgroundColor;
-		this->PointInicio = PointInicio;
-		this->PointFinal = PointFinal;
-		this->shapeID = shapeID;
-	}
+	Rectangulo(Color* foreColor, Color* backgroundColor, Point PointInicio, Point PointFinal, int shapeID) :
+		foreColor(foreColor), backgroundColor(backgroundColor), PointInicio(PointInicio), PointFinal(PointFinal), shapeID(shapeID) {}
 	string draw() {
 		return "Rectangulo";
 	};
@@ -86,13 +74,8 @@ private:
 
 class Triangulo :public Shape {
 public:
-	Triangulo(Color* foreColor, Color* backgroundColor, Point PointIncio, Point PointFinal, int shapeID) {
-		this->foreColor = foreColor;
-		this->backgroundColor = backgroundColor;
-		this->PointFinal = PointFinal;
-		this->PointInicio = PointInicio;
-		this->shapeID = shapeID;
-	}
+	Triangulo(Color* foreColor, Color* backgroundColor, Point PointIncio, Point PointFinal, int shapeID) :
+		foreColor(foreColor), backgroundColor(backgroundColor), PointInicio(PointInicio), PointFinal(PointFinal), shapeID(shapeID) {}
 	string draw() {
 		return "Triangulo";
 	}
