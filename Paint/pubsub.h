@@ -21,13 +21,9 @@ private:
 	bool existSubscriber(int subscriberIndex);
 	void deleteSuscriber(string channel, unsigned int subscriberIndex);
 	int findSubscriberIndex(vector<PtrFunction>& arr, PtrFunction subscriber);
-	
 
 	bool isChannelEmpty(string channel);
-
-	void deleteChannel(string  channel) {
-		channels.erase(channel);
-	}
+	void deleteChannel(string  channel);
 
 	void addSubscriberToChannel(PtrFunction subscriber, string channel) {
 		if (!channelExists(channel)) {

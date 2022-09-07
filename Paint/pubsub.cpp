@@ -29,3 +29,40 @@ template<typename T>
 bool PubSub<T>::isChannelEmpty(string channel) {
 	return (channels[channel].size() == 0);
 }
+
+template<typename T>
+void PubSub<T>::deleteChannel(string  channel) {
+	channels.erase(channel);
+}
+template<typename T>
+void PubSub<T>::addSubscriberToChannel(PtrFunction subscriber, string channel) {
+	if (!channelExists(channel)) {
+		channels[channel] = { subscriber };
+	}
+
+	else {
+		channels[channel].push_back(subscriber);
+	}
+}
+
+template<typename T>
+void PubSub<T>::deleteSubscriber(PtrFunction subscriber, string channel) {
+	auto suscriberIndex = findSubscriberIndex(channels[channel], subscriber);
+	if (existSubscriber(suscriberIndex)) {
+		deleteSuscriber(channel, suscriberIndex);
+	}
+}
+
+template<typename T>
+bool PubSub<T>::channelExists(string channel) {
+	return (channels.count(channel) == 1);
+}
+
+template<typename T>
+VoidFunction PubSub<T>::subscribe(string channel, PtrFunction subscriber) {
+	addSubscriberToChannel(subscriber, channel);
+
+	return[=]() {
+		deleteSubscriber(subscriber, channel);
+	};
+}
