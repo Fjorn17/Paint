@@ -2,7 +2,7 @@
 #include "CLI/App.hpp"
 
 
-int main(){
+int main(int argc, char** argv){
     CLI::App app{"App description"};
 
     std::string filename = "default";
