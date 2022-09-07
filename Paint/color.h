@@ -6,31 +6,22 @@
 
 using namespace std;
 
-class Color {
-public:
-    static const int MAX = 0xffff;
-    Color(int red, int green, int blue, int alpha = MAX);
- 
-    static const Color red;
-    static const Color green;
-    static const Color blue;
-    static const Color white;
-    static const Color black;
-    
+struct Color
+{
+    static constexpr Color red() { return Color(255, 0, 0); }
+    static constexpr Color green() { return Color(0, 255, 0); }
+    static constexpr Color blue() { return Color(0, 0, 255); }
+    static constexpr Color black() { return Color(0, 0, 0); }
+    static constexpr Color white() { return Color(255, 255, 255); }
 
-private:
-    int m_red;
-    int m_green;
-    int m_blue;
-    int m_alpha;
+    constexpr Color(uint8_t r, uint8_t g, uint8_t b, uint8_t a = 255)
+        : r(r), g(g), b(b), a(a)
+    {}
+
+    uint8_t r;
+    uint8_t g;
+    uint8_t b;
+    uint8_t a;
 };
-
-const Color Color::red(MAX, 0, 0);
-const Color Color::green(0, MAX, 0);
-const Color Color::blue(0, 0, MAX);
-const Color Color::white(MAX, MAX, MAX);
-const Color Color::black(0, 0, 0);
-
-
 
 #endif //!COLOR_H

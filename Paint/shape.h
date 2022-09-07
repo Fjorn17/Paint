@@ -37,11 +37,12 @@ private:
 
 class Rectangulo :public Shape {
 public:
-	Rectangulo(Color* foreColor, Color* backgroundColor, Punto puntoInicio, Punto puntoFinal) {
+	Rectangulo(Color* foreColor, Color* backgroundColor, Punto puntoInicio, Punto puntoFinal, int shapeID) {
 		this->foreColor = foreColor;
 		this->backgroundColor = backgroundColor;
 		this->puntoInicio = puntoInicio;
 		this->puntoFinal = puntoFinal;
+		this->shapeID = shapeID;
 	}
 	string draw() {
 		return "Rectangulo";
@@ -51,15 +52,17 @@ private:
 	Color* backgroundColor;
 	Punto puntoInicio;
 	Punto puntoFinal;
+	int shapeID;
 };
 
 class Triangulo :public Shape {
 public:
-	Triangulo(Color* foreColor, Color* backgroundColor, Punto puntoIncio, Punto puntoFinal) {
+	Triangulo(Color* foreColor, Color* backgroundColor, Punto puntoIncio, Punto puntoFinal, int shapeID) {
 		this->foreColor = foreColor;
 		this->backgroundColor = backgroundColor;
 		this->puntoFinal = puntoFinal;
 		this->puntoInicio = puntoInicio;
+		this->shapeID = shapeID;
 	}
 	string draw() {
 		return "Triangulo";
@@ -69,6 +72,7 @@ private:
 	Color* backgroundColor;
 	Punto puntoInicio;
 	Punto puntoFinal;
+	int shapeID;
 };
 
 #endif // !SHAPE_H
