@@ -17,7 +17,6 @@ class PubSub {
 private:
 	map<string, vector<PtrFunction>> channels;
 
-
 	bool existSubscriber(int subscriberIndex);
 	void deleteSuscriber(string channel, unsigned int subscriberIndex);
 	int findSubscriberIndex(vector<PtrFunction>& arr, PtrFunction subscriber);
@@ -26,14 +25,12 @@ private:
 	void deleteChannel(string  channel);
 
 	void addSubscriberToChannel(PtrFunction subscriber, string channel);
-
 	void deleteSubscriber(PtrFunction subscriber, string channel);
 
 	bool channelExists(string channel);
+
 public:
-
 	void publish(string channel, T data);
-
 	VoidFunction subscribe(string channel, PtrFunction subscriber);
 };
 

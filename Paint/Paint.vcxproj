@@ -144,6 +144,7 @@
     <ClInclude Include="shape.h" />
     <ClInclude Include="singleton.h" />
     <ClInclude Include="toolBar.h" />
+    <ClInclude Include="uuid.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
