@@ -4,7 +4,8 @@
             "name": "Win32",
             "includePath": [
                 "${workspaceFolder}/**",
-                "${workspaceFolder}/Paint"
+                "${workspaceFolder}/Paint",
+                "${workspaceFolder}/Paint/CLI"
             ],
             "defines": [
                 "_DEBUG",
