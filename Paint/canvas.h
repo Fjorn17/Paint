@@ -9,7 +9,7 @@ using namespace std;
 class Canvas{
 protected:
     virtual void list() = 0;
-    virtual void list(TypeShape typeShape) = 0;
+    virtual void list(string typeShape) = 0;
     virtual void list(Point point) = 0;
     void clearSelection() {
         selectedShapes.clear();
@@ -30,7 +30,7 @@ public:
 
     virtual void add(Shape *shape) = 0;
 
-    virtual void list(TypeShape typeShape, Point point) = 0;
+    virtual void list(string typeShape, Point point) = 0;
 
     virtual void selectShapeByPoint(Point point) = 0;
     virtual void selectAllShapes() = 0;
@@ -39,14 +39,14 @@ public:
     virtual void unselectAllShapes() = 0;
 
     virtual void removeShape() = 0;
-    virtual void removeShape(ID id) = 0;
+    virtual void removeShape(int id) = 0;
     virtual void removeShape(Point point) = 0;
     virtual void removeAllShapes() = 0;
 
-    virtual void applyForeColorToShape(ID id, Color color) = 0;
-    virtual void applyBackgroundColorToShape(ID id, Color color) = 0;
-    virtual void moveShape (ID id, Point point) = 0;
-}
+    virtual void applyForeColorToShape(int id, Color color) = 0;
+    virtual void applyBackgroundColorToShape(int id, Color color) = 0;
+    virtual void moveShape (int id, Point point) = 0;
+};
 
 
 #endif //!CANVAS_H
