@@ -31,30 +31,13 @@ private:
 	int x;
 	int y;
 public:
-	Point() {
-		x = 0;
-		y = 0;
-	}
-	Point(int x, int y) {
-		this->x = x;
-		this->y = y;
-	}
+	Point(int x=0, int y=0):x(x),y(y) {}
 	int getX() { return x; }
 	int getY() { return y; }
 
-	friend Point& operator+(const Point& p1, const Point& p2);
-	friend Point& operator-(const Point& p1, const Point& p2);
+	Point& operator+(const Point& other);
+	Point& operator-(const Point& other);
 };
-Point& operator+(const Point& p1, const Point& p2) {
-	auto suma = Point(p1.x + p2.x, p1.y + p2.y);
-	return suma;
-}
-Point& operator-(const Point& p1, const Point& p2) {
-	auto resta = Point(p1.x + p2.x, p1.y + p2.y);
-	return resta;
-}
-
-
 
 class Shape {
 public:

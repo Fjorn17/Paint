@@ -129,6 +129,7 @@
   <ItemGroup>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="pubsub.cpp" />
+    <ClCompile Include="shape.cpp" />
     <ClCompile Include="singleton.cpp" />
   </ItemGroup>
   <ItemGroup>
