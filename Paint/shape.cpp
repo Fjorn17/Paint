@@ -1,3 +1,4 @@
+#include <iostream>
 #include "shape.h"
 
 Point& Point::operator+(const Point& other) {
