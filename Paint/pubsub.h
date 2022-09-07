@@ -25,43 +25,16 @@ private:
 	bool isChannelEmpty(string channel);
 	void deleteChannel(string  channel);
 
-	void addSubscriberToChannel(PtrFunction subscriber, string channel) {
-		if (!channelExists(channel)) {
-			channels[channel] = { subscriber };
-		}
+	void addSubscriberToChannel(PtrFunction subscriber, string channel);
 
-		else {
-			channels[channel].push_back(subscriber);
-		}
-	}
+	void deleteSubscriber(PtrFunction subscriber, string channel);
 
-	void deleteSubscriber(PtrFunction subscriber, string channel) {
-		auto suscriberIndex = findSubscriberIndex(channels[channel], subscriber);
-		if (existSubscriber(suscriberIndex)) {
-			deleteSuscriber(channel, suscriberIndex);
-		}
-	}
-
-	bool channelExists(string channel) {
-		return (channels.count(channel) == 1);
-	}
+	bool channelExists(string channel);
 public:
 
-	void publish(string channel, T data) {
-		if (channelExists(channel)) {
-			for (auto subscriber : channels[channel]) {
-				subscriber(data);
-			}
-		}
-	}
+	void publish(string channel, T data);
 
-	VoidFunction subscribe(string channel, PtrFunction subscriber) {
-		addSubscriberToChannel(subscriber, channel);
-
-		return[=]() {
-			deleteSubscriber(subscriber, channel);
-		};
-	}
+	VoidFunction subscribe(string channel, PtrFunction subscriber);
 };
 
 #endif//!PUBSUB_H

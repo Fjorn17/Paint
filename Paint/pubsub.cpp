@@ -59,6 +59,16 @@ bool PubSub<T>::channelExists(string channel) {
 }
 
 template<typename T>
+void PubSub<T>::publish(string channel, T data) {
+	if (channelExists(channel)) {
+		for (auto subscriber : channels[channel]) {
+			subscriber(data);
+		}
+	}
+}
+
+
+template<typename T>
 VoidFunction PubSub<T>::subscribe(string channel, PtrFunction subscriber) {
 	addSubscriberToChannel(subscriber, channel);
 
