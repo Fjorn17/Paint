@@ -128,11 +128,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="singleton.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="canvas.h" />
     <ClInclude Include="shapeFactory.h" />
     <ClInclude Include="shape.h" />
+    <ClInclude Include="singleton.h" />
     <ClInclude Include="toolBar.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
