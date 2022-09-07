@@ -7,30 +7,45 @@
 using namespace std;
 
 class Canvas{
-    public:
-        vector<Shapes> shapeVector;
-        vector<Shapes> selectShapeVector;
+protected:
+    virtual void list() = 0;
+    virtual void list(TypeShape typeShape) = 0;
+    virtual void list(Point point) = 0;
+    void clearSelection() {
+        selectedShapes.clear();
+    }
 
-        virtual void createShapeCanvas(Shape shape) = 0;
+public:
+    vector<Shape*> shapes;
+    vector<Shape*> selectedShapes;
 
-        virtual void list() = 0;
-        virtual void list(TypeShape typeShape) = 0;
-        virtual void list(Point point) = 0;
+    ~Canvas() {
+        for (auto shape : shapes) {
+            delete shape;
+        } 
 
-        virtual void selectShapeByPoint(Point point) = 0;
-        virtual void selectAllShapes() = 0;
+        shapes.clear();
+        clearSelection();
+    }
 
-        virtual void unselectShapeByPoint(Point point) = 0;
-        virtual void unselectAllShapes() = 0;
+    virtual void add(Shape *shape) = 0;
 
-        virtual void removeShape() = 0;
-        virtual void removeShape(ID id) = 0;
-        virtual void removeShape(Point point) = 0;
-        virtual void removeAllShapes() = 0;
+    virtual void list(TypeShape typeShape, Point point) = 0;
 
-        virtual void applyForeColorToShape(shapeID????, Color color) = 0;
-        virtual void applyBackgroundColorToShape(shapeID????, Color color) = 0;
-        virtual void moveShape (shapeID????, Point point) = 0;
+    virtual void selectShapeByPoint(Point point) = 0;
+    virtual void selectAllShapes() = 0;
+
+    virtual void unselectShapeByPoint(Point point) = 0;
+    virtual void unselectAllShapes() = 0;
+
+    virtual void removeShape() = 0;
+    virtual void removeShape(ID id) = 0;
+    virtual void removeShape(Point point) = 0;
+    virtual void removeAllShapes() = 0;
+
+    virtual void applyForeColorToShape(ID id, Color color) = 0;
+    virtual void applyBackgroundColorToShape(ID id, Color color) = 0;
+    virtual void moveShape (ID id, Point point) = 0;
 }
 
 
