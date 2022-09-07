@@ -2,6 +2,7 @@
 #define CANVAS_H
 
 #include <vector>
+#include "shape.h"
 
 using namespace std;
 
