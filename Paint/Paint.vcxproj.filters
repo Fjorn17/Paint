@@ -41,6 +41,12 @@
     <ClInclude Include="singleton.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
+    <ClInclude Include="color.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="punto.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
     <ClInclude Include="pubsub.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>

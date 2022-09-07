@@ -133,6 +133,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="canvas.h" />
+    <ClInclude Include="color.h" />
+    <ClInclude Include="punto.h" />
     <ClInclude Include="pubsub.h" />
     <ClInclude Include="shapeFactory.h" />
     <ClInclude Include="shape.h" />
