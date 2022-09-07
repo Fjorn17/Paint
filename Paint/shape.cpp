@@ -5,6 +5,6 @@ Point& Point::operator+(const Point& other) {
 	return suma;
 }
 Point& Point::operator-(const Point& other) {
-	auto resta = Point(p1.x + p2.x, p1.y + p2.y);
+	auto resta = Point(x + other.x, y + other.y);
 	return resta;
 }
