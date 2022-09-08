@@ -39,13 +39,13 @@ public:
     virtual void unselectAllShapes() = 0;
 
     virtual void removeShape() = 0;
-    virtual void removeShape(int id) = 0;
+    virtual void removeShape(string id) = 0;
     virtual void removeShape(Point point) = 0;
     virtual void removeAllShapes() = 0;
 
-    virtual void applyForeColorToShape(int id, Color color) = 0;
-    virtual void applyBackgroundColorToShape(int id, Color color) = 0;
-    virtual void moveShape (int id, Point point) = 0;
+    virtual void applyForeColorToShape(string id, Color color) = 0;
+    virtual void applyBackgroundColorToShape(string id, Color color) = 0;
+    virtual void moveShape (string id, Point point) = 0;
 };
 
 

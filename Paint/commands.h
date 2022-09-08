@@ -8,14 +8,15 @@
 
 class CommandCreateShape : public CommandSerializer{
 public:
-	CommandCreateShape(Canvas* canvas,ToolBar* toolbar) : canvas(canvas),toolbar(toolbar){}
+	CommandCreateShape(Canvas* canvas,ToolBar* toolbar, Shape* shape) : canvas(canvas),toolbar(toolbar),shape(shape) {}
 	void execute() {
 		//Shape* s= toolbar->createShape(parse);
-		canvas->add(s);
+		canvas->add(shape);
 	}
 private:
 	Canvas* canvas;
 	ToolBar* toolbar;
+	Shape* shape;
 };
 
 class CommandList : public Command {
@@ -30,4 +31,122 @@ private:
 	Point point;
 };
 
+class CommandMove : public CommandSerializer {
+public:
+	CommandMove(Canvas* canvas, ToolBar* toolbar,string id, Point point) : canvas(canvas), toolbar(toolbar),id(id), point(point) {}
+	void execute() {
+		//Shape* s= toolbar->createShape(parse);
+		canvas->moveShape(id, point);
+	}
+private:
+	string id;
+	Point point;
+	Canvas* canvas;
+	ToolBar* toolbar;
+};
+
+class CommandApplyForeColorToShape : public CommandSerializer {
+public:
+	CommandApplyForeColorToShape(Canvas* canvas, ToolBar* toolbar, string id, Color color) : canvas(canvas), toolbar(toolbar), id(id), color(color) {}
+	void execute() {
+		//Shape* s= toolbar->createShape(parse);
+		canvas->applyForeColorToShape(id, color);
+	}
+private:
+	string id;
+	Color color;
+	Canvas* canvas;
+	ToolBar* toolbar;
+};
+
+class CommandApplyBackgroundColorToShape : public CommandSerializer {
+public:
+	CommandApplyBackgroundColorToShape(Canvas* canvas, ToolBar* toolbar, string id, Color color) : canvas(canvas), toolbar(toolbar), id(id), color(color) {}
+	void execute() {
+		//Shape* s= toolbar->createShape(parse);
+		canvas->applyBackgroundColorToShape(id, color);
+	}
+private:
+	string id;
+	Color color;
+	Canvas* canvas;
+	ToolBar* toolbar;
+};
+
+class CommandSelectShapeByPoint : public CommandSerializer {
+public:
+	CommandSelectShapeByPoint(Canvas* canvas, ToolBar* toolbar,Point point) : canvas(canvas), toolbar(toolbar), point(point) {}
+	void execute() {
+		//Shape* s= toolbar->createShape(parse);
+		canvas->selectShapeByPoint(point);
+	}
+private:
+	Point point;
+	Canvas* canvas;
+	ToolBar* toolbar;
+};
+
+class CommandSelectAllShapes : public CommandSerializer {
+public:
+	CommandSelectAllShapes(Canvas* canvas, ToolBar* toolbar) : canvas(canvas), toolbar(toolbar) {}
+	void execute() {
+		//Shape* s= toolbar->createShape(parse);
+		canvas->selectAllShapes();
+	}
+private:
+	Canvas* canvas;
+	ToolBar* toolbar;
+};
+
+class CommandUnselectShapeByPoint : public CommandSerializer {
+public:
+	CommandUnselectShapeByPoint(Canvas* canvas, ToolBar* toolbar, Point point) : canvas(canvas), toolbar(toolbar), point(point) {}
+	void execute() {
+		//Shape* s= toolbar->createShape(parse);
+		canvas->unselectShapeByPoint(point);
+	}
+private:
+	Point point;
+	Canvas* canvas;
+	ToolBar* toolbar;
+};
+
+class CommandUnselectAllShapes : public CommandSerializer {
+public:
+	CommandUnselectAllShapes(Canvas* canvas, ToolBar* toolbar) : canvas(canvas), toolbar(toolbar) {}
+	void execute() {
+		//Shape* s= toolbar->createShape(parse);
+		canvas->unselectAllShapes();
+	}
+private:
+	Canvas* canvas;
+	ToolBar* toolbar;
+};
+
+class CommandRemoveShape : public CommandSerializer {
+public:
+	CommandRemoveShape(Canvas* canvas, ToolBar* toolbar, string id,Point point) : canvas(canvas), toolbar(toolbar), id(id), point(point) {}
+	void execute() {
+		//Shape* s= toolbar->createShape(parse);
+		canvas->removeShape(id);
+		canvas->removeShape(point);
+	}
+private:
+	string id;
+	Point point;
+	Canvas* canvas;
+	ToolBar* toolbar;
+};
+
+class CommandRemoveAllShapes : public CommandSerializer {
+public:
+	CommandRemoveAllShapes(Canvas* canvas, ToolBar* toolbar) : canvas(canvas), toolbar(toolbar) {}
+	void execute() {
+		//Shape* s= toolbar->createShape(parse);
+		canvas->removeAllShapes();
+	}
+private:
+	Canvas* canvas;
+	ToolBar* toolbar;
+};
 #endif
