@@ -9,7 +9,7 @@ using namespace std;
 class shapeFactory {
 public:
     virtual ~shapeFactory() {};
-    virtual Shape* CrearShape(Color* foreColor, Color* backgroundColor, Point PointInicio, Point PointFinal, string shapeID) = 0;
+    virtual Shape* CrearShape(Color foreColor, Color backgroundColor, Point PointInicio, Point PointFinal, string shapeID) = 0;
 };
 
 class RectanguloFactory : public shapeFactory {
@@ -36,6 +36,8 @@ public:
     }
 };
 
+//shapeFactory* creator = new RectanguloFactory();
+//shapeFactory* creator2 = new TrianguloFactory();
 
 
 #endif // !SHAPE_FACTORY_H
