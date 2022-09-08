@@ -45,15 +45,15 @@ public:
 
 class Circulo :public Shape {
 public:
-	Circulo(Color* foreColor, Color* backgroundColor, Point PointInicio, Point PointFinal, string shapeID):
+	Circulo(Color foreColor, Color backgroundColor, Point PointInicio, Point PointFinal, string shapeID):
 		foreColor(foreColor), backgroundColor(backgroundColor), PointInicio(PointInicio), PointFinal(PointFinal), shapeID(shapeID){}
 	virtual ~Circulo() {}
 	string draw() {
 		return "Circulo";
 	};
 private:
-	Color* foreColor;
-	Color* backgroundColor;
+	Color foreColor;
+	Color backgroundColor;
 	Point PointInicio;
 	Point PointFinal;
 	string shapeID;
@@ -61,14 +61,14 @@ private:
 
 class Rectangulo :public Shape {
 public:
-	Rectangulo(Color* foreColor, Color* backgroundColor, Point PointInicio, Point PointFinal, string shapeID) :
+	Rectangulo(Color foreColor, Color backgroundColor, Point PointInicio, Point PointFinal, string shapeID) :
 		foreColor(foreColor), backgroundColor(backgroundColor), PointInicio(PointInicio), PointFinal(PointFinal), shapeID(shapeID) {}
 	string draw() {
 		return "Rectangulo";
 	};
 private:
-	Color* foreColor;
-	Color* backgroundColor;
+	Color foreColor;
+	Color backgroundColor;
 	Point PointInicio;
 	Point PointFinal;
 	string shapeID;
@@ -76,14 +76,14 @@ private:
 
 class Triangulo :public Shape {
 public:
-	Triangulo(Color* foreColor, Color* backgroundColor, Point PointIncio, Point PointFinal, string shapeID) :
+	Triangulo(Color foreColor, Color backgroundColor, Point PointIncio, Point PointFinal, string shapeID) :
 		foreColor(foreColor), backgroundColor(backgroundColor), PointInicio(PointInicio), PointFinal(PointFinal), shapeID(shapeID) {}
 	string draw() {
 		return "Triangulo";
 	}
 private:
-	Color* foreColor;
-	Color* backgroundColor;
+	Color foreColor;
+	Color backgroundColor;
 	Point PointInicio;
 	Point PointFinal;
 	string shapeID;

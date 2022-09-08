@@ -9,29 +9,33 @@ using namespace std;
 class shapeFactory {
 public:
     virtual ~shapeFactory() {};
-    virtual Shape* CrearShape() const = 0;
-
-    string SomeOperation() const {
-        // Call the factory method to create a Product object.
-        Shape* shape = this->CrearShape();
-        string result = "Creator: The same creator's code has just worked with " + shape->draw();
-        delete shape;
-        return result;
-    }
+    virtual Shape* CrearShape(Color* foreColor, Color* backgroundColor, Point PointInicio, Point PointFinal, string shapeID) = 0;
 };
 
 class RectanguloFactory : public shapeFactory {
 public:
-    Shape* CrearShape() const override {
-        return new Rectangulo();
+    RectanguloFactory(){}
+    Shape* CrearShape(Color foreColor, Color backgroundColor, Point PointInicio, Point PointFinal, string shapeID){
+        return new Rectangulo(foreColor, backgroundColor, PointInicio, PointFinal, shapeID);
     }
 };
 
-void ClientCode(const Creator& creator) {
-    // ...
-    std::cout << "Client: I'm not aware of the creator's class, but it still works.\n"
-        << creator.SomeOperation() << std::endl;
-    // ...
-}
+class TrianguloFactory : public shapeFactory {
+public:
+    TrianguloFactory() {}
+    Shape* CrearShape(Color foreColor, Color backgroundColor, Point PointInicio, Point PointFinal, string shapeID) {
+        return new Triangulo(foreColor, backgroundColor, PointInicio, PointFinal, shapeID);
+    }
+};
+
+class CirculoFactory : public shapeFactory {
+public:
+    CirculoFactory() {}
+    Shape* CrearShape(Color foreColor, Color backgroundColor, Point PointInicio, Point PointFinal, string shapeID) {
+        return new Circulo(foreColor, backgroundColor, PointInicio, PointFinal, shapeID);
+    }
+};
+
+
 
 #endif // !SHAPE_FACTORY_H
