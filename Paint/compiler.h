@@ -2,24 +2,32 @@
 #define PARSE_H
 
 #include <iostream>
+#include <vector>
 #include "shape.h"
-using namespace std;
+#include "commands.h"
+#include "CLI11.hpp"
 
+using namespace std;
+/*
 template <typename T, typename... Args>
 T* CreateNew(Args&&... args) {
     return new T(std::forward<Args>(args)...);
 };
+*/
 
-struct CommandParse {
-    string command;
-    string typeshape;
-    int initialPoint_x, initialPoint_y;
-    int finalPoint_x, finalPoint_y;
-    string foreColor,backgroundColor;
-    int ID;
+class Compiler {
+public:
+    void init() {
+        
+    };
+    void addCommand(string name,Command command,string description) {
+        Compiler.add_option(name, command, description);
+    };
+private:
+    vector<Command> commands;
+    CLI::App Compiler;
 };
-
-
+#endif
 
 /*
 int main() {
@@ -34,4 +42,4 @@ int main() {
     return 0;
 }*/
 
-#endif 
+
