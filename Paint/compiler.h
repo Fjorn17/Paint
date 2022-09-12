@@ -1,5 +1,5 @@
-#ifndef PARSE_H
-#define PARSE_H
+#ifndef COMPILER_H
+#define COMPILER_H
 
 #include <iostream>
 #include <vector>
@@ -17,15 +17,17 @@ T* CreateNew(Args&&... args) {
 
 class Compiler {
 public:
-    void init() {
-        
+    void run(string command) {
+        addCommand(command);
     };
-    void addCommand(string name,Command command,string description) {
-        Compiler.add_option(name, command, description);
+    void addCommand(string command) {
+        cli.parse(command);
+       //new command
+        // commands.push(command);
     };
 private:
     vector<Command> commands;
-    CLI::App Compiler;
+    CLI::App cli;
 };
 #endif
 

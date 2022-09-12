@@ -4,18 +4,22 @@
 #include <iostream>
 #include "singleton.h"
 #include "parse.h"
+#include "CLI11.hpp"
+#include "compiler.h"
 
 class Application: public Singleton {
-
+	 
 private:
 	bool _exit;
-	Parse parse;
+	Compiler compiler;
 	void run();
+	
 public:
+	Application();
 	Application(Application &other) = delete;
 	void operator=(const Application&) = delete;
 
-	void init();
+	void run();
 	void exit();
 };
 

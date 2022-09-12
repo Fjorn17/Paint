@@ -127,15 +127,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="application.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="pubsub.cpp" />
     <ClCompile Include="shape.cpp" />
     <ClCompile Include="singleton.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="application.h" />
     <ClInclude Include="canvas.h" />
     <ClInclude Include="command.h" />
     <ClInclude Include="commands.h" />
+    <ClInclude Include="compiler.h" />
+    <ClInclude Include="endianness.h" />
     <ClInclude Include="parse.h" />
     <ClInclude Include="pubsub.h" />
     <ClInclude Include="shapeFactory.h" />
