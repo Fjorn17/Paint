@@ -12,7 +12,7 @@ public:
 
 class CommandSerializer : public Command {
 	void execute(){
-		publish(command,"serializer");
+		publish("serializer",command);
 	}
 };
 #endif // !"COMMAND_H"

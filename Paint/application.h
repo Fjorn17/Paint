@@ -11,8 +11,8 @@ class Application: public Singleton {
 	 
 private:
 	bool _exit;
-	Compiler compiler;
-	void run();
+	Compiler* compiler;
+	
 	
 public:
 	Application();
@@ -21,6 +21,9 @@ public:
 
 	void run();
 	void exit();
+
+	Canvas* canvas;
+	ToolBar* toolbar;
 };
 
 

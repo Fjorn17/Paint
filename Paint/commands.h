@@ -5,18 +5,20 @@
 #include "canvas.h"
 #include "toolBar.h"
 #include "parse.h"
+#include "application.h"
+#include "compiler.h"
 
 class CommandCreateShape : public CommandSerializer{
 public:
-	CommandCreateShape(Canvas* canvas,ToolBar* toolbar, Shape* shape) : canvas(canvas),toolbar(toolbar),shape(shape) {}
+	CommandCreateShape(Canvas* canvas,ToolBar* toolbar,  shared_ptr<Compiler::CommandParse> parse) : canvas(canvas),toolbar(toolbar),shape(shape) {}
 	void execute() {
-		//Shape* s= toolbar->createShape(parse);
+		Shape* s= toolbar->createShape(parse);
 		canvas->add(shape);
 	}
 private:
 	Canvas* canvas;
 	ToolBar* toolbar;
-	Shape* shape;
+	shared_ptr<CommandParse> parse;
 };
 
 class CommandList : public Command {
@@ -31,6 +33,19 @@ private:
 	Point point;
 };
 
+class CommandExit : public Command {
+public:
+	CommandList(Application* app) : canvas(canvas), shape(shape), point(point) {}
+	void execute() {
+		canvas->list(shape, point);
+	}
+private:
+	Canvas* canvas;
+	string shape;
+	Point point;
+};
+
+/*
 class CommandMove : public CommandSerializer {
 public:
 	CommandMove(Canvas* canvas, ToolBar* toolbar,string id, Point point) : canvas(canvas), toolbar(toolbar),id(id), point(point) {}
@@ -148,5 +163,5 @@ public:
 private:
 	Canvas* canvas;
 	ToolBar* toolbar;
-};
+};*/
 #endif
