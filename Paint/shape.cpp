@@ -15,4 +15,6 @@ Point& Point::operator-(const Point& other) {
 Point& Point::operator=(vector<int> other) {
 	x = other[0];
 	y = other[1];
+
+	return *this;
 }

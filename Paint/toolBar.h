@@ -6,11 +6,9 @@
 
 class ToolBar{
 public:
-    Shape* createShape(shared_ptr<Compiler::CommandParse> parse) {
-        Color fore(parse->foreColor);
-        Color background(parse->backgroundColor);
-        Point initial = parse->initialPoint;
-        Shape* shape = new Triangulo(fore, background, parse->initialPoint, parse->finalPoint);
+    Shape* createShape(/*shared_ptr<Compiler::CommandParse> parse*/) {
+        Shape* shape; //= new Triangulo(parse->foreColor, parse->backgroundColor,parse->initialPoint, parse->finalPoint);
+
         canvas->add(shape);
         return shape;
     };

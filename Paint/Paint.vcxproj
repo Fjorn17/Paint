@@ -136,11 +136,11 @@
   <ItemGroup>
     <ClInclude Include="application.h" />
     <ClInclude Include="canvas.h" />
+    <ClInclude Include="CLI11.hpp" />
     <ClInclude Include="command.h" />
     <ClInclude Include="commands.h" />
     <ClInclude Include="compiler.h" />
     <ClInclude Include="endianness.h" />
-    <ClInclude Include="parse.h" />
     <ClInclude Include="pubsub.h" />
     <ClInclude Include="shapeFactory.h" />
     <ClInclude Include="shape.h" />

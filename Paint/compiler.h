@@ -15,6 +15,8 @@ T* CreateNew(Args&&... args) {
 };
 */
 
+
+
 class Compiler {
 public:
     struct CommandParse {
@@ -25,7 +27,7 @@ public:
         int ID;
     };
 
-    Compiler(Application* app) :app(app) { setup(); }
+    Compiler() { setup(); }
 
     void setup() {
         auto parse = make_shared<CommandParse>();
@@ -46,8 +48,13 @@ public:
 private:
     void setupCreate(shared_ptr<CommandParse> parse) {
         auto* sub = cli.add_subcommand("create")->immediate_callback();
-        auto aux = app;
-        sub->callback([parse,aux] {CommandCreateShape(aux->canvas, aux->toolbar, parse); });
+       
+        sub->callback([parse] {//CommandCreateShape(aux->canvas, aux->toolbar, parse);
+            cout << parse->typeshape << " " << endl;
+            cout << parse->initialPoint[0] << parse->initialPoint[1] << endl;
+            cout << parse->finalPoint[0] << parse->finalPoint[1] << endl;
+
+            });
 
         sub->add_option("-s, --shape", parse->typeshape)->required();
         sub->add_option<vector<int>>("-i, --initialPoint", parse->initialPoint)->required();
@@ -66,10 +73,9 @@ private:
         sub->callback([] {});
     }
     CLI::App cli;
-    Application* app;
+ 
 };
 #endif
-
 /*
 int main() {
 

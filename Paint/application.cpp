@@ -4,7 +4,7 @@ Application::Application(){
 	_exit = false;
 	//canvas = new Canvas();
 	//toolbar = new ToolBar();
-	compiler = new Compiler(this);
+	compiler = new Compiler();
 }
 
 void Application::run() {
@@ -13,7 +13,7 @@ void Application::run() {
 		getline(cin, command);
 
 		
-		try { compiler.run(command); }
+		try { compiler->run(command); }
 		catch (const CLI::ParseError& e) {
 			std::cout << (e.get_exit_code());
 			exit();

@@ -5,8 +5,8 @@
 
 int main(){
     
-    Application app;
-    app.run();
+    auto app = new Application();
+    app->run();
 
     return 0;
 } 
