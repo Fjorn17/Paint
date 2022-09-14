@@ -3,13 +3,13 @@
 
 
 Point& Point::operator+(const Point& other) {
-	auto suma = Point(x + other.x, y + other.y);
-	return suma;
+	auto suma = new Point(x + other.x, y + other.y);
+	return *suma;
 }
 
 Point& Point::operator-(const Point& other) {
-	auto resta = Point(x + other.x, y + other.y);
-	return resta;
+	auto resta = new Point(x + other.x, y + other.y);
+	return *resta;
 }
 
 Point& Point::operator=(vector<int> other) {
